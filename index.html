@@ -1009,9 +1009,10 @@ var _dispatch = function(el, evt, detail) {
      var target = document.getElementById("dance");
    target.style.webkitTransition = 'all ease 0.05s';
 
-   touch.on('#dance', 'touchstart', function (ev) {
-       ev.preventDefault();
-   });    var initialScale = -10;    var currentScale;    var dx, dy;
+//    touch.on('#dance', 'touchstart', function (ev) {
+//        ev.preventDefault();
+//    });      var dx, dy;
+	 var initialScale = -10;    var currentScale; 
    touch.on('#dance', 'pinchend', function (ev) {        if ($("#dance").hasClass('viewerimg')) {
            $("#dance").removeClass("viewerimg");
        };
@@ -1030,16 +1031,16 @@ var _dispatch = function(el, evt, detail) {
       
    });
 
-   touch.on('#dance', 'drag', function (ev) {
-       dx = dx || 0;
-       dy = dy || 0;        this.style.webkitTransform = 'scale(' + currentScale + ')';
-       console.log("当前x值为:" + dx + ", 当前y值为:" + dy + ".");        var offx = dx + ev.x + "px";        var offy = dy + ev.y + "px";        this.style.webkitTransform = "translate3d(" + offx + "," + offy + ",0)";
-   });
+//    touch.on('#dance', 'drag', function (ev) {
+//        dx = dx || 0;
+//        dy = dy || 0;        this.style.webkitTransform = 'scale(' + currentScale + ')';
+//        console.log("当前x值为:" + dx + ", 当前y值为:" + dy + ".");        var offx = dx + ev.x + "px";        var offy = dy + ev.y + "px";        this.style.webkitTransform = "translate3d(" + offx + "," + offy + ",0)";
+//    });
 
-   touch.on('#dance', 'dragend', function (ev) {
-       dx += ev.x;
-       dy += ev.y;
-   });
+//    touch.on('#dance', 'dragend', function (ev) {
+//        dx += ev.x;
+//        dy += ev.y;
+//    });
 </script>
 <!-- <script type="text/javascript">
     $(function () {
