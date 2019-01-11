@@ -20,7 +20,7 @@
     <div class="pinch-zoom">
         <img id="dance" class="viewerimg" draggable="true" src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2185511559,1796435134&fm=26&gp=0.jpg">
     
-	    123
+	    123456
 	    </div>
 </div>
 
@@ -1005,39 +1005,38 @@ var _dispatch = function(el, evt, detail) {
     return exports;
 }));
 
-</script>
-	<script type="text/javascript">
+<script type="text/javascript">
      var target = document.getElementById("dance");
    target.style.webkitTransition = 'all ease 0.05s';
 
-   touch.on('#imgView', 'touchstart', function (ev) {
+   touch.on('#dance', 'touchstart', function (ev) {
        ev.preventDefault();
    });    var initialScale = -10;    var currentScale;    var dx, dy;
-   touch.on('#imgView', 'pinchend', function (ev) {        if ($("#imgView").hasClass('viewerimg')) {
-           $("#imgView").removeClass("viewerimg");
+   touch.on('#dance', 'pinchend', function (ev) {        if ($("#dance").hasClass('viewerimg')) {
+           $("#dance").removeClass("viewerimg");
        };
        currentScale = ev.scale - 1;
        currentScale = initialScale + currentScale;
        currentScale = currentScale > 2 ? 2 : currentScale;
        currentScale = currentScale < 1 ? 1 : currentScale;        if (currentScale == 1) {
-           $("#imgView").addClass("viewerimg");
+           $("#dance").addClass("viewerimg");
        };        this.style.webkitTransform = 'scale(' + currentScale + ')';
        console.log("当前缩放比例为:" + currentScale + ".");
        
    });
 
-   touch.on('#imgView', 'pinchend', function (ev) {
+   touch.on('#dance', 'pinchend', function (ev) {
        initialScale = currentScale;
       
    });
 
-   touch.on('#imgView', 'drag', function (ev) {
+   touch.on('#dance', 'drag', function (ev) {
        dx = dx || 0;
        dy = dy || 0;        this.style.webkitTransform = 'scale(' + currentScale + ')';
        console.log("当前x值为:" + dx + ", 当前y值为:" + dy + ".");        var offx = dx + ev.x + "px";        var offy = dy + ev.y + "px";        this.style.webkitTransform = "translate3d(" + offx + "," + offy + ",0)";
    });
 
-   touch.on('#imgView', 'dragend', function (ev) {
+   touch.on('#dance', 'dragend', function (ev) {
        dx += ev.x;
        dy += ev.y;
    });
