@@ -26,7 +26,7 @@
 </div>
 <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 <script>
-    /*
+   /*
 
     Copyright (c) Manuel Stofer 2013 - rtp.ch - RTP.PinchZoom.js
 
@@ -527,11 +527,11 @@
 
                 // Zepto doesn't recognize `webkitTransform..` style
                 this.el.css({
-                    '-webkit-transform-origin': '0% 0%',
-                    '-moz-transform-origin': '0% 0%',
-                    '-ms-transform-origin': '0% 0%',
-                    '-o-transform-origin': '0% 0%',
-                    'transform-origin': '0% 0%',
+                    // '-webkit-transform-origin': '0% 0%',
+                    // '-moz-transform-origin': '0% 0%',
+                    // '-ms-transform-origin': '0% 0%',
+                    // '-o-transform-origin': '0% 0%',
+                    // 'transform-origin': '0% 0%',
                     'position': 'absolute'
                 });
             },
@@ -783,6 +783,7 @@
         window.RTP.PinchZoom = definePinchZoom(window.$);
     }
 }).call(this);
+
 
 </script>
 <script type="text/javascript">
