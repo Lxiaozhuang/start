@@ -1,88 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./dist/css/layui.css">
-    <script src="./dist/layui.all.js"></script>
-    <script src="./dist/jquery.min.js"></script>
-    <title>Document</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>图片缩放</title>
+    <style>
+        .pinch-zoom,.pinch-zoom img{
+            width: 30px;
+            -webkit-user-drag: none;
+            -moz-user-drag: none;
+            -ms-user-drag: none;
+            user-drag: none;
+        }
+    </style>
 </head>
-<body style="text-align: center">
-    <div class="box" style="margin: 100px auto">
-        <button id="btn1" class="layui-btn layui-btn-lg layui-btn-normal layui-btn-radius">小傻子，点击这里</button>
+<body>
+<div class="page" style="display:block">
+    <div class="pinch-zoom">
+        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2185511559,1796435134&fm=26&gp=0.jpg"/>
     </div>
-    
-    <script>
-    $('#btn1').on('click',function(){
-        layer.fn1()
+</div>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script src="js/pinchzoom.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('div.pinch-zoom').each(function () {
+            new RTP.PinchZoom($(this), {});
+        });
     })
-    var layer = layer || {}
-    layer.fn1 = function(){
-        layer.msg('谢正涛是猪吗？',{
-            time:0,
-            btn: ['是', '不是'],
-            yes: function(index){
-                layer.close(index)
-                layer.fn2()
-            },
-            btn2: function(){
-            layer.msg('选错啦!!!',{time:1200,anim:6},function(){
-                layer.fn1()
-            })
-            }
-        })
-    }
-    layer.fn2 = function(){
-        layer.msg('李姝新是你女神吗？',{
-            time:0,
-            btn: ['必须的', '不是'],
-            anim:4,
-            yes: function(index){
-                layer.close(index)
-                layer.fn3()
-            },
-            btn2: function(){
-            layer.msg('选错啦!!!',{time:1200,anim:6},function(){
-                layer.fn2()
-            })
-            }
-        })
-    }
-    layer.fn3 = function(){
-        layer.msg('李姝新是老大还是谢正涛是老大？',{
-            time:0,
-            btn: ['李姝新', '谢正涛'],
-            anim:4,
-            yes: function(index){
-                layer.close(index)
-                layer.fn4()
-            },
-            btn2: function(){
-            layer.msg('选错啦!!!',{time:1200,anim:6},function(){
-                layer.fn3()
-            })
-            }
-        })
-    }
-    layer.fn4=function(){
-        layer.msg('你是不是很崇拜李姝新？',{
-            time:0,
-            btn: ['是', '不是'],
-            anim:4,
-            yes: function(index){
-                layer.close(index)
-                layer.msg('这就对了嘛!!!哈哈哈哈哈哈哈哈哈哈',{time:1200,anim:6})
-            },
-            btn2: function(){
-            layer.msg('选错啦!!!',{time:1200,anim:6},function(){
-                layer.fn4()
-            })
-            }
-        })
-    }
-    </script>
+</script>
 </body>
 </html>
