@@ -59,7 +59,7 @@
 <div>注意：html2canvas 只能在服务器中抓取img</div>
 	<div id="content" style="width:500px;height:500px;border:1px solid #22b4f6;float:left;text-align:center; background: #fff;">
 		<p class="ppp" id="qwe"><img width="80" height="100" src="./js/2.jpg" alt="头像"></p>
-		<p id="fs></p>
+		<p class="ppp" id="fs></p>
 	    <p>昵称：马云云</p>
 	    <p>技能：前端 + 后端 + 小程序 + webapp</p>
 	    <p>语言：html5、php、mysql</p>
@@ -89,7 +89,7 @@ btnSave.onclick = function(){
 			//读取属性值
 			// var value= canvas.getAttribute('id');
             document.getElementById('images').innerHTML = '';
-            document.getElementById('images').appendChild(canvas);
+            //document.getElementById('images').appendChild(canvas);
 	document.getElementById("fs").appendChild(canvas);
 	document.getElementById("qwe").style.display= 'none'			    
 		console.log(document.getElementById("qwe"))
