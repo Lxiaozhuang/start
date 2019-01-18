@@ -77,6 +77,7 @@
 var btnSave = document.getElementById("btnSave");
 // 获取内容id
 var content = document.getElementById("qwe");
+	var content1 = document.getElementById("content");
 // 进行canvas生成
 btnSave.onclick = function(){
 	html2canvas(content, {
@@ -87,6 +88,17 @@ btnSave.onclick = function(){
 			// var value= canvas.getAttribute('id');
             document.getElementById('images').innerHTML = '';
             document.getElementById('images').appendChild(canvas);
+	content.innerHtml = canvas
+	html2canvas(content1, {
+        onrendered: function(jd) {
+        	//添加属性
+        	jd.setAttribute('id','thecanvas');
+			//读取属性值
+			// var value= canvas.getAttribute('id');
+            document.getElementById('images').innerHTML = '';
+            document.getElementById('images').appendChild(jd);
+        }
+	})
         }
 	});
 }
