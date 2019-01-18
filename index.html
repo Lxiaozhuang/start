@@ -57,7 +57,7 @@
 <body>
 <div>注意：html2canvas 只能在服务器中抓取img</div>
 	<div id="content" style="width:500px;height:500px;border:1px solid #22b4f6;float:left;text-align:center; background: #fff;">
-		<p class="ppp"><img width="80" height="100" src="./js/2.jpg" alt="头像"></p>
+		<p class="ppp" id="qwe"><img width="80" height="100" src="./js/2.jpg" alt="头像"></p>
 	    <p>昵称：马云云</p>
 	    <p>技能：前端 + 后端 + 小程序 + webapp</p>
 	    <p>语言：html5、php、mysql</p>
@@ -76,7 +76,7 @@
 // 获取按钮id
 var btnSave = document.getElementById("btnSave");
 // 获取内容id
-var content = document.getElementById("content");
+var content = document.getElementById("qwe");
 // 进行canvas生成
 btnSave.onclick = function(){
 	html2canvas(content, {
