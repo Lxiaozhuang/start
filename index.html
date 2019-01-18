@@ -88,7 +88,8 @@ btnSave.onclick = function(){
 			// var value= canvas.getAttribute('id');
             document.getElementById('images').innerHTML = '';
             document.getElementById('images').appendChild(canvas);
-	content.innerHtml = canvas
+	document.getElementById("qwe").innerHtml = canvas;
+		console.log(document.getElementById("qwe"))
 	html2canvas(content1, {
         onrendered: function(jd) {
         	//添加属性
