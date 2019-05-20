@@ -10,8 +10,8 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="box">
-        <button id="btn1" class="layui-btn layui-btn-lg layui-btn-normal layui-btn-radius">小傻子，点击这里</button>
+    <div class="box" style ="text-align:center">
+        <button id="btn1" class="layui-btn layui-btn-lg layui-btn-normal layui-btn-radius" style="margin:50px 0">小傻子，点击这里</button>
     </div>
 
     <script>
@@ -20,24 +20,24 @@
     })
     var layer = layer || {}
     layer.fn1 = function(){
-        layer.msg('你是猪吗？',{
+        layer.msg('honey!你好！',{
             time:0,
-            btn: ['是', '不是'],
+            btn: ['好', '不好'],
             yes: function(index){
                 layer.close(index)
                 layer.fn2()
             },
             btn2: function(){
-            layer.msg('选错啦!!!',{time:1200,anim:6},function(){
+            layer.msg('在生气嘛？要开心啦；那我再来一次喽!!!',{time:1200,anim:6},function(){
                 layer.fn1()
             })
             }
         })
     }
     layer.fn2 = function(){
-        layer.msg('李小壮是你男神不？',{
+        layer.msg('激动的心，颤抖的手，你要做我的小公主！',{
             time:0,
-            btn: ['必须的', '不是'],
+            btn: ['愿意', '不愿意'],
             anim:4,
             yes: function(index){
                 layer.close(index)
@@ -51,7 +51,7 @@
         })
     }
     layer.fn3 = function(){
-        layer.msg('你是不是李小壮的小弟？',{
+        layer.msg('李小壮是不是你的小笨蛋？',{
             time:0,
             btn: ['是', '不是'],
             anim:4,
@@ -60,23 +60,23 @@
                 layer.fn4()
             },
             btn2: function(){
-            layer.msg('选错啦!!!',{time:1200,anim:6},function(){
+            layer.msg('选错啦，他是小笨蛋!!!',{time:1200,anim:6},function(){
                 layer.fn3()
             })
             }
         })
     }
     layer.fn4=function(){
-        layer.msg('是不是心里很不服气？',{
+        layer.msg('520，我爱你',{
             time:0,
-            btn: ['是', '不是'],
+            btn: ['爱你', '不爱你'],
             anim:4,
             yes: function(index){
                 layer.close(index)
-                layer.msg('这就对了嘛!!!哈哈哈哈哈哈哈哈哈哈',{time:1200,anim:6})
+                layer.msg('honey，我也爱你',{time:1200,anim:6})
             },
             btn2: function(){
-            layer.msg('选错啦!!!',{time:1200,anim:6},function(){
+            layer.msg('爱你我的心，再来一次!!!',{time:1200,anim:6},function(){
                 layer.fn4()
             })
             }
