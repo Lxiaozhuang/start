@@ -6,14 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./dist/css/layui.css">
     <script src="./dist/layui.all.js"></script>
+    <script src="./dist/layui.js"></script>
     <script src="./dist/jquery.min.js"></script>
     <title>Document</title>
+    <style>
+    #img{
+        display: none;
+        transition: all 10s
+    }
+    </style>
 </head>
 <body>
     <div class="box" style ="text-align:center">
         <button id="btn1" class="layui-btn layui-btn-lg layui-btn-normal layui-btn-radius" style="margin:50px 0">honey，点击这里</button>
     </div>
-
+    <div id="img"><img style="width:100%" src="./dist/css/1.jpg"></div>
     <script>
     $('#btn1').on('click',function(){
         layer.fn1()
@@ -73,21 +80,28 @@
             anim:4,
             yes: function(index){
                 layer.close(index)
-                layer.msg('honey，我也爱你',{time:1200,anim:6},function(){layer.fn4()
-                    layer.fn5()
+                layer.msg('honey，我也爱你',function(){
+                    layer.fn5();
+                    $('#img').show();
+                    $('#img').animate({},function(){
+                        $('#img').css({'transform':'rotate(720deg)'})
+                    })
+                   
                 })
             },
             btn2: function(){
             layer.msg('爱你我的心，再来一次!!!',{time:1200,anim:6},function(){
-                layer.fn4()
+                layer.fn4();
+                
             })
             }
         })
-    },
+    }
         layer.fn5=function(){
         layer.msg('送你一朵玫瑰花',{
             time:0,
-            content: '<div class="layui-anim" data-anim="layui-anim-rotate">360度旋转</div><div class="code">layui-anim-rotate</div>',
+            btn:'还有哦',
+            content: '',
             anim:4,
             yes: function(index){
                 layer.close(index);
@@ -98,14 +112,20 @@
         layer.fn6=function(){
         layer.msg('最爱的你',{
             time:0,
-            content: '<div style="width:100%;height:100%;"><img src="http://qzonestyle.gtimg.cn/ac/b.gif"/></div>',
+            content: '<div style="position: fixed;top: 0;left: 0;width:100%;height:100%;"><img style="width:100%" src="http://m.qpic.cn/psb?/V12mZs7S3aDImn/uvjq6w5SiV6tRomUwqomPYlxX7D3sczR3KW5*4I.AeU!/b/dLIAAAAAAAAA&bo=OASABwAAAAARB4s!&rf=viewer_4&t=5"/></div>',
             anim:4,
             yes: function(index){
                 layer.close(index);
-            layer.fn6()
+            // layer.fn6()
             }
         })
     }
+    console.log($('#img'))
+    $('#img').click(function(){
+        console.log(1111)
+        $('#img').css({'transform':'rotate(18000deg)'})
+});
+   
     </script>
 </body>
 </html> 
