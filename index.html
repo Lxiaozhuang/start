@@ -85,18 +85,25 @@
         })
     },
         layer.fn5=function(){
-        layer.msg('520，我爱你',{
+        layer.msg('送你一朵玫瑰花',{
             time:0,
-            btn: ['爱你', '不爱你'],
+            content: '<div class="layui-anim" data-anim="layui-anim-rotate">360度旋转</div>
+    <div class="code">layui-anim-rotate</div>'
             anim:4,
             yes: function(index){
-                layer.close(index)
-                layer.msg('honey，我也爱你',{time:1200,anim:6})
-            },
-            btn2: function(){
-            layer.msg('爱你我的心，再来一次!!!',{time:1200,anim:6},function(){
-                layer.fn4()
-            })
+                layer.close(index);
+            layer.fn6()
+            }
+        })
+    },
+        layer.fn6=function(){
+        layer.msg('最爱的你',{
+            time:0,
+            content: '<div style="width:100%;height:100%;"><img src="http://qzonestyle.gtimg.cn/ac/b.gif"/></div>'
+            anim:4,
+            yes: function(index){
+                layer.close(index);
+            layer.fn6()
             }
         })
     }
