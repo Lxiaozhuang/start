@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="box" style ="text-align:center">
-        <button id="btn1" class="layui-btn layui-btn-lg layui-btn-normal layui-btn-radius" style="margin:50px 0">小傻子，点击这里</button>
+        <button id="btn1" class="layui-btn layui-btn-lg layui-btn-normal layui-btn-radius" style="margin:50px 0">honey，点击这里</button>
     </div>
 
     <script>
@@ -67,6 +67,24 @@
         })
     }
     layer.fn4=function(){
+        layer.msg('520，我爱你',{
+            time:0,
+            btn: ['爱你', '不爱你'],
+            anim:4,
+            yes: function(index){
+                layer.close(index)
+                layer.msg('honey，我也爱你',{time:1200,anim:6},function(){layer.fn4()
+                    layer.fn5()
+                })
+            },
+            btn2: function(){
+            layer.msg('爱你我的心，再来一次!!!',{time:1200,anim:6},function(){
+                layer.fn4()
+            })
+            }
+        })
+    },
+        layer.fn5=function(){
         layer.msg('520，我爱你',{
             time:0,
             btn: ['爱你', '不爱你'],
