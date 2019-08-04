@@ -1,131 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./dist/css/layui.css">
-    <script src="./dist/layui.all.js"></script>
-    <script src="./dist/layui.js"></script>
-    <script src="./dist/jquery.min.js"></script>
-    <title>Document</title>
-    <style>
-    #img{
-        display: none;
-        transition: all 10s
-    }
-    </style>
+    <title>图片小修饰</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- html2canvas将Dom节点在Canvas里边画出来 -->
+    <script src="js/html2canvas.min.js"></script>
+
+    <!-- 将canvas图片保存成图片 -->
+    <script src="js/canvas2image.js"></script>
+    <script src="js/base64.js"></script>
 </head>
+
 <body>
-    <div class="box" style ="text-align:center">
-        <button id="btn1" class="layui-btn layui-btn-lg layui-btn-normal layui-btn-radius" style="margin:50px 0">honey，点击这里</button>
+    <div class="btnInput">  
+        <span>选择照片</span>
+        <input type="file" onChange="test(event)" id="input">
     </div>
-    <div id="img"><img style="width:100%" src="./dist/css/1.jpg"></div>
-    <script>
-    $('#btn1').on('click',function(){
-        layer.fn1()
-    })
-    var layer = layer || {}
-    layer.fn1 = function(){
-        layer.msg('honey!你好！',{
-            time:0,
-            btn: ['好', '不好'],
-            yes: function(index){
-                layer.close(index)
-                layer.fn2()
-            },
-            btn2: function(){
-            layer.msg('在生气嘛？要开心啦；那我再来一次喽!!!',{time:1200,anim:6},function(){
-                layer.fn1()
-            })
-            }
-        })
-    }
-    layer.fn2 = function(){
-        layer.msg('激动的心，颤抖的手，你要做我的小公主！',{
-            time:0,
-            btn: ['愿意', '不愿意'],
-            anim:4,
-            yes: function(index){
-                layer.close(index)
-                layer.fn3()
-            },
-            btn2: function(){
-            layer.msg('选错啦!!!',{time:1200,anim:6},function(){
-                layer.fn2()
-            })
-            }
-        })
-    }
-    layer.fn3 = function(){
-        layer.msg('李小壮是不是你的小笨蛋？',{
-            time:0,
-            btn: ['是', '不是'],
-            anim:4,
-            yes: function(index){
-                layer.close(index)
-                layer.fn4()
-            },
-            btn2: function(){
-            layer.msg('选错啦，他是小笨蛋!!!',{time:1200,anim:6},function(){
-                layer.fn3()
-            })
-            }
-        })
-    }
-    layer.fn4=function(){
-        layer.msg('520，我爱你',{
-            time:0,
-            btn: ['爱你', '不爱你'],
-            anim:4,
-            yes: function(index){
-                layer.close(index)
-                layer.msg('honey，我也爱你',function(){
-                    layer.fn5();
-                    $('#img').show();
-                    $('#img').animate({},function(){
-                        $('#img').css({'transform':'rotate(720deg)'})
-                    })
-                   
-                })
-            },
-            btn2: function(){
-            layer.msg('爱你我的心，再来一次!!!',{time:1200,anim:6},function(){
-                layer.fn4();
-                
-            })
-            }
-        })
-    }
-        layer.fn5=function(){
-        layer.msg('送你一朵玫瑰花',{
-            time:0,
-            btn:'还有哦',
-            content: '',
-            anim:4,
-            yes: function(index){
-                layer.close(index);
-            layer.fn6()
-            }
-        })
-    },
-        layer.fn6=function(){
-        layer.msg('最爱的你',{
-            time:0,
-            content: '<div style="position: fixed;top: 0;left: 0;width:100%;height:100%;"><img style="width:100%" src="http://m.qpic.cn/psb?/V12mZs7S3aDImn/uvjq6w5SiV6tRomUwqomPYlxX7D3sczR3KW5*4I.AeU!/b/dLIAAAAAAAAA&bo=OASABwAAAAARB4s!&rf=viewer_4&t=5"/></div>',
-            anim:4,
-            yes: function(index){
-                layer.close(index);
-            // layer.fn6()
-            }
-        })
-    }
-    console.log($('#img'))
-    $('#img').click(function(){
-        console.log(1111)
-        $('#img').css({'transform':'rotate(18000deg)'})
-});
-   
-    </script>
+    <div id="content" class="img"
+        style="width:400px;float:left;text-align:center; background: #fff;">
+        <img src="" id="img" alt="图片">
+    </div>
+    <div class="arrow">
+        ==></div>
+    <div id="images" style="">图片预览区</div>
+    <button id="btnSave">抓取图片</button><button id="Download">下载图片</button>
 </body>
-</html> 
+<script>
+    function test(e) {
+        var x = new FileReader;
+        //   console.log(e)
+        //   console.log(e.value)
+        // document.getElementById('img').src=e.target
+        x.readAsDataURL(e.target.files[0]);
+
+        x.onloadend = function () {
+            console.log(x)
+            document.getElementById('img').src = this.result;
+        }
+    }
+    /*生成canvas图形*/
+
+    // 获取按钮id
+    var btnSave = document.getElementById("btnSave");
+    // 获取内容id
+    var content = document.getElementById("content");
+    var Arrow = document.querySelector('.arrow');
+    var images = document.querySelector('#images');
+
+    // 进行canvas生成
+    btnSave.onclick = function () {
+        Arrow.style.display='block';
+        images.style.display='block';
+        html2canvas(content, {
+            onrendered: function (canvas) {
+                //添加属性
+                canvas.setAttribute('id', 'thecanvas');
+                //读取属性值
+                // var value= canvas.getAttribute('id');
+                images.innerHTML = '';
+                images.appendChild(canvas);
+            }
+        });
+    }
+</script>
+<script>
+    /*
+     * 说明
+     * 不支持跨域图片
+     * 不能在浏览器插件中使用
+     * 部分浏览器上不支持SVG图片
+     * 不支持Flash
+     */
+    var Download = document.getElementById("Download");
+    Download.onclick = function () {
+        var oCanvas = document.getElementById("thecanvas");
+
+        /*自动保存为png*/
+        // 获取图片资源
+        var img_data1 = Canvas2Image.saveAsPNG(oCanvas, true).getAttribute('src');
+        saveFile(img_data1, 'richer.png');
+
+
+        /*下面的为原生的保存，不带格式名*/
+        // 这将会提示用户保存PNG图片
+        // Canvas2Image.saveAsPNG(oCanvas);
+    }
+    // 保存文件函数
+    var saveFile = function (data, filename) {
+        var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+        save_link.href = data;
+        save_link.download = filename;
+
+        var event = document.createEvent('MouseEvents');
+        event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        save_link.dispatchEvent(event);
+    };
+</script>
+
+</html>
