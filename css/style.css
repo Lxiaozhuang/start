@@ -1,0 +1,99 @@
+p {
+    font-size: 15px;
+    font-family: 'Microsoft YaHei', 'Lantinghei SC', 'Open Sans', Arial, 'Hiragino Sans GB', 'STHeiti', 'WenQuanYi Micro Hei', 'SimSun', sans-serif;
+}
+
+#content {
+    border-radius: 3px;
+}
+
+#btnSave,
+#Download {
+    position: absolute;
+    left: 180px;
+    top: 540px;
+    width: 78px;
+    height: 30px;
+    background-color: #22b4f6;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    border: none;
+}
+
+#Download {
+    margin-left: 560px;
+}
+
+.tx,
+.bt {
+    border: 1px solid #999;
+    width: 100px;
+    height: 20px;
+    border-radius: 3px;
+}
+
+.bt {
+    background-color: #22b4f6;
+    color: #fff;
+    text-align: center;
+    border: none;
+}
+
+.img {
+    position: relative;
+    -webkit-filter: contrast(1.1) brightness(1.1) saturate(1.3);
+    filter: contrast(1.1) brightness(1.1) saturate(1.3);
+}
+
+.img::after,
+.img::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+#img {
+    width: 100%;
+}
+
+.btnInput {
+    position: relative;
+    width: 80px;
+    height: 20px;
+    background: #cccc;
+    overflow: hidden;
+}
+
+.btnInput input {
+    position: absolute;
+    opacity: 0;
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+
+.arrow {
+    width: 60px;
+    height: 302px;
+    float: left;
+    text-align: center;
+    line-height: 302px;
+    font-size: 30px;
+    color: #22b4f6;
+    display: none
+}
+
+#images {
+    width: 190px;
+    height: 302px;
+    float: left;
+    text-align: center;
+    line-height: 302px;
+    /* display: none */
+}
